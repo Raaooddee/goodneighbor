@@ -1,3 +1,5 @@
+import { ifrcCharities } from "./ifrcCharities";
+
 export type Charity = {
   slug: string; // used in URL: /charity/[slug]
   name: string;
@@ -33,7 +35,8 @@ export const ALL_CATEGORIES = [
   "Scholarships",
 ] as const;
 
-export const charities: Charity[] = [
+// Keep your “hand-picked” charities here (the ones you personally trust most)
+const manualCharities: Charity[] = [
   {
     slug: "doctors-without-borders-msf",
     name: "Doctors Without Borders (MSF)",
@@ -110,3 +113,8 @@ export const charities: Charity[] = [
     lastUpdated: "2025-12-24",
   },
 ];
+
+// FINAL LIST used by your site:
+// - manualCharities (curated / verified by you)
+// - ifrcCharities (auto-generated “one per country” set)
+export const charities: Charity[] = [...manualCharities, ...(ifrcCharities as unknown as Charity[])];
