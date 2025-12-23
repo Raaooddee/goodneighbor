@@ -210,7 +210,7 @@ export default function Home() {
           Send us the official website + donate page link and we’ll review it.
         </p>
         <a
-          href="mailto:YOUR_EMAIL_HERE?subject=GoodNeighbor%20Charity%20Submission"
+          href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Charity%20Submission"
           style={{ fontWeight: 700, color: "black" }}
           onClick={(e) => e.stopPropagation()}
         >
