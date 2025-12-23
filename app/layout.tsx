@@ -71,12 +71,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 About
               </Link>
 
-              <Link
-                href="/charities"
+              {/* Submit replaces Browse */}
+              <a
+                href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Charity%20Submission"
                 className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-emerald-800 hover:bg-white/90"
               >
-                Browse →
-              </Link>
+                Submit →
+              </a>
             </nav>
           </div>
         </header>

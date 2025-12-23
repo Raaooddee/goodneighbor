@@ -1,114 +1,89 @@
 import Link from "next/link";
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="grid gap-8">
-      {/* Hero */}
-      <section className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 shadow-sm ring-1 ring-white/10 sm:p-8">
-        {/* subtle decoration */}
-        <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/10" />
-        <div className="pointer-events-none absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-white/10" />
+      <div className="grid gap-2">
+        <h1 className="text-3xl font-extrabold tracking-tight text-white">About GoodNeighbor</h1>
+        <p className="text-white/85">
+          We help people discover charities and donate safely — by linking directly to official donation pages.
+        </p>
+      </div>
 
-        <div className="relative grid gap-8 md:grid-cols-2 md:items-center">
-          <div className="grid gap-4">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-              Give with confidence.
-              <span className="mt-2 block text-white/80">
-                Donate directly to official charity pages.
-              </span>
-            </h1>
+      {/* Creator */}
+      <section className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20">
+        <h2 className="text-xl font-extrabold">Creator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-emerald-900/90">
+          Hi — I’m <span className="font-semibold">Raad Hassan</span>, the creator of GoodNeighbor. I built this website
+          because it’s easy to feel unsure when donating online — especially with reposted links and lookalike pages.
+          I wanted one place where you can find charities by cause and country, then donate through official pages with
+          more confidence.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-emerald-900/90">
+          My goal is simple: make giving easier, safer, and more organized. Even a small donation matters, and I hope
+          this helps more people support the causes they care about without worrying they’re sending money to the wrong
+          place.
+        </p>
 
-            <p className="max-w-prose text-base leading-relaxed text-white/85">
-              Discover charities by cause and location. We never process payments — we send you straight to the charity’s
-              official donation page.
-            </p>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="/charities"
-                className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-emerald-800 hover:bg-white/90"
-              >
-                Browse charities →
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-              >
-                How it works
-              </Link>
-            </div>
-
-            <p className="text-xs text-white/70">
-              Tip: always verify the domain before donating. We’ll list official links.
-            </p>
-          </div>
-
-          {/* Right side */}
-          <div className="rounded-2xl border border-white/15 bg-white/10 p-5 text-white shadow-sm sm:p-6">
-            <div className="text-sm font-extrabold">What you can do</div>
-
-            <div className="mt-4 grid gap-3">
-              <div className="rounded-2xl bg-white p-4 text-emerald-950">
-                <div className="text-sm font-bold">Filter by category</div>
-                <div className="mt-1 text-sm text-emerald-900/80">Health, education, emergency relief, more.</div>
-              </div>
-              <div className="rounded-2xl bg-white p-4 text-emerald-950">
-                <div className="text-sm font-bold">Filter by location</div>
-                <div className="mt-1 text-sm text-emerald-900/80">Find charities operating where you care.</div>
-              </div>
-              <div className="rounded-2xl bg-white p-4 text-emerald-950">
-                <div className="text-sm font-bold">Donate safely</div>
-                <div className="mt-1 text-sm text-emerald-900/80">We link you to official donate pages only.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donate CTA */}
-      <section className="rounded-3xl bg-white/10 p-6 ring-1 ring-white/15 shadow-sm sm:p-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="grid gap-1">
-            <h2 className="text-xl font-extrabold tracking-tight text-white">Ready to donate?</h2>
-            <p className="text-sm text-white/85">
-              Browse charities and donate through official links — quick, safe, and direct.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/charities"
-              className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-emerald-800 hover:bg-white/90"
-            >
-              Browse charities →
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              Learn how we verify
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Start here */}
-      <section className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20 sm:p-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="grid gap-1">
-            <h2 className="text-xl font-extrabold tracking-tight">Start here</h2>
-            <p className="text-sm text-emerald-900/80">
-              Open the directory to search, filter, and view each charity’s donate section.
-            </p>
-          </div>
-
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/charities"
-            className="inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+            className="inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
           >
-            Open charity directory →
+            Browse charities →
+          </Link>
+          <Link
+            href="/verify"
+            className="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-4 py-3 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
+          >
+            Learn how we verify →
           </Link>
         </div>
+      </section>
+
+      {/* How it works */}
+      <section className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20">
+        <h2 className="text-xl font-extrabold">How it works</h2>
+        <ol className="mt-4 grid gap-3 text-sm text-emerald-900/90">
+          <li>
+            <span className="font-semibold">1) Browse & filter:</span> pick a cause and location that matters to you.
+          </li>
+          <li>
+            <span className="font-semibold">2) Open a charity page:</span> read details and confirm the official links.
+          </li>
+          <li>
+            <span className="font-semibold">3) Donate directly:</span> click donate to go to the charity’s official
+            website.
+          </li>
+        </ol>
+      </section>
+
+      {/* Safety */}
+      <section className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20">
+        <h2 className="text-xl font-extrabold">Safety rule</h2>
+        <p className="mt-3 text-sm leading-relaxed text-emerald-900/90">
+          GoodNeighbor never processes payments. We only provide links so you donate directly to the charity, reducing
+          the risk of sending money to the wrong place.
+        </p>
+        <ul className="mt-4 grid gap-2 text-sm text-emerald-900/90">
+          <li>• Always check the website domain before donating.</li>
+          <li>• Prefer verified/official links when available.</li>
+          <li>• If something looks suspicious, don’t donate and report it.</li>
+        </ul>
+      </section>
+
+      {/* Contact */}
+      <section className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20">
+        <h2 className="text-xl font-extrabold">Submissions</h2>
+        <p className="mt-2 text-sm text-emerald-900/90">
+          Want to add a charity? Email the official website + donation page link:
+        </p>
+        <a
+          href="mailto:YOUR_EMAIL_HERE?subject=GoodNeighbor%20Charity%20Submission"
+          className="mt-4 inline-flex rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+        >
+          Submit a charity →
+        </a>
       </section>
     </div>
   );
