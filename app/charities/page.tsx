@@ -133,7 +133,7 @@ export default function CharitiesPage() {
           Send us the official website + donate page link and we’ll review it.
         </p>
         <a
-          href="mailto:YOUR_EMAIL_HERE?subject=GoodNeighbor%20Charity%20Submission"
+          href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Charity%20Submission"
           className="mt-4 inline-flex rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
           onClick={(e) => e.stopPropagation()}
         >
