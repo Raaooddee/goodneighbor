@@ -9,39 +9,40 @@ export default function CharityPage({ params }: { params: { slug: string } }) {
   return (
     <div className="grid gap-8">
       <div className="flex items-center justify-between">
-        <Link href="/charities" className="text-sm font-semibold text-slate-700 hover:text-slate-900">
+        <Link href="/charities" className="text-sm font-semibold text-white/90 hover:text-white">
           ← Back to directory
         </Link>
       </div>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+      {/* Details */}
+      <section className="rounded-3xl bg-white p-8 text-emerald-950 shadow-sm ring-1 ring-white/20">
         <div className="grid gap-3">
           <h1 className="text-3xl font-extrabold tracking-tight">{charity.name}</h1>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+            <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200">
               {charity.category}
             </span>
             {charity.verified && (
-              <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">
+              <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-semibold text-white">
                 ✅ Verified
               </span>
             )}
-            <span className="text-xs text-slate-500">Updated: {charity.lastUpdated}</span>
+            <span className="text-xs text-emerald-900/60">Updated: {charity.lastUpdated}</span>
           </div>
 
-          <div className="text-sm text-slate-500">
+          <div className="text-sm text-emerald-900/70">
             📍 {charity.city}, {charity.country}
           </div>
 
-          <p className="mt-3 text-sm leading-relaxed text-slate-700">{charity.description}</p>
+          <p className="mt-3 text-sm leading-relaxed text-emerald-900/85">{charity.description}</p>
         </div>
       </section>
 
-      {/* Donate section */}
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+      {/* Donate */}
+      <section className="rounded-3xl bg-white p-8 text-emerald-950 shadow-sm ring-1 ring-white/20">
         <h2 className="text-xl font-extrabold">Donate</h2>
-        <p className="mt-2 text-sm text-slate-600">
+        <p className="mt-2 text-sm text-emerald-900/80">
           Donations are made on the charity’s official website. GoodNeighbor never collects payments.
         </p>
 
@@ -50,7 +51,7 @@ export default function CharityPage({ params }: { params: { slug: string } }) {
             href={charity.donateUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+            className="inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
           >
             Donate on official page →
           </a>
@@ -60,14 +61,14 @@ export default function CharityPage({ params }: { params: { slug: string } }) {
               href={charity.websiteUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              className="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
             >
               Visit website
             </a>
           )}
         </div>
 
-        <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
+        <div className="mt-6 rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-900/85 ring-1 ring-emerald-200">
           <div className="font-semibold">Safety checklist</div>
           <ul className="mt-2 grid gap-1">
             <li>• Check the domain name matches the official charity.</li>
