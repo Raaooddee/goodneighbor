@@ -35,7 +35,13 @@ export default function Home() {
         background: "#fff",
       }}
     >
-      <h1 style={{ fontSize: 32, fontWeight: 800 }}>Charity Finder</h1>
+      <h1 style={{ fontSize: 32, fontWeight: 800 }}>GoodNeighbor</h1>
+      <p style={{ marginTop: 8, color: "#444", fontSize: 16 }}>
+  Find charities by cause and location. Donate directly on the charity’s official website.
+</p>
+<p style={{ marginTop: 6, color: "#666", fontSize: 12 }}>
+  We never take donations — we only link you to the charity’s real donate page.
+</p>
       <p style={{ marginTop: 8, color: "#444" }}>
         Filter charities and donate directly on the charity’s official page.
       </p>
