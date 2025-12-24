@@ -35,7 +35,7 @@ export const ALL_CATEGORIES = [
   "Scholarships",
 ] as const;
 
-// Keep your “hand-picked” charities here (the ones you personally trust most)
+// Your hand-picked / curated charities
 const manualCharities: Charity[] = [
   {
     slug: "doctors-without-borders-msf",
@@ -114,7 +114,10 @@ const manualCharities: Charity[] = [
   },
 ];
 
-// FINAL LIST used by your site:
-// - manualCharities (curated / verified by you)
-// - ifrcCharities (auto-generated “one per country” set)
-export const charities: Charity[] = [...manualCharities, ...(ifrcCharities as unknown as Charity[])];
+// ✅ Force IFRC generated list to show Verified (you can later refine per-country)
+const ifrcVerified: Charity[] = (ifrcCharities as unknown as Charity[]).map((c) => ({
+  ...c,
+  verified: true,
+}));
+
+export const charities: Charity[] = [...manualCharities, ...ifrcVerified];

@@ -2,81 +2,83 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { charities } from "../../../data/charities";
 
+// If you ever use static export, this prevents 404s by prebuilding pages.
+export function generateStaticParams() {
+  return charities.map((c) => ({ slug: c.slug }));
+}
+
+// Optional (safe): if slug not in generateStaticParams, 404 it.
+export const dynamicParams = false;
+
 export default function CharityPage({ params }: { params: { slug: string } }) {
   const charity = charities.find((c) => c.slug === params.slug);
   if (!charity) return notFound();
 
-  return (
-    <div className="grid gap-8">
-      <div className="flex items-center justify-between">
-        <Link href="/charities" className="text-sm font-semibold text-white/90 hover:text-white">
-          ← Back to directory
-        </Link>
-      </div>
+  const location = charity.city ? `${charity.city}, ${charity.country}` : charity.country;
 
-      {/* Details */}
-      <section className="rounded-3xl bg-white p-8 text-emerald-950 shadow-sm ring-1 ring-white/20">
-        <div className="grid gap-3">
-          <h1 className="text-3xl font-extrabold tracking-tight">{charity.name}</h1>
+  return (
+    <div className="grid gap-6">
+      <div className="flex items-start justify-between gap-4">
+        <div className="grid gap-2">
+          <h1 className="text-3xl font-extrabold tracking-tight text-white">{charity.name}</h1>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200">
+            <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white">
               {charity.category}
             </span>
-            {charity.verified && (
-              <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-semibold text-white">
+
+            {charity.verified ? (
+              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-emerald-800">
                 ✅ Verified
               </span>
+            ) : (
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85">
+                Unverified
+              </span>
             )}
-            <span className="text-xs text-emerald-900/60">Updated: {charity.lastUpdated}</span>
+
+            <span className="text-xs text-white/75">Updated: {charity.lastUpdated}</span>
           </div>
 
-          <div className="text-sm text-emerald-900/70">
-            📍 {charity.city}, {charity.country}
-          </div>
-
-          <p className="mt-3 text-sm leading-relaxed text-emerald-900/85">{charity.description}</p>
+          <p className="mt-1 text-white/85">{charity.description}</p>
+          <p className="text-sm text-white/80">📍 {location}</p>
         </div>
-      </section>
 
-      {/* Donate */}
-      <section className="rounded-3xl bg-white p-8 text-emerald-950 shadow-sm ring-1 ring-white/20">
-        <h2 className="text-xl font-extrabold">Donate</h2>
-        <p className="mt-2 text-sm text-emerald-900/80">
-          Donations are made on the charity’s official website. GoodNeighbor never collects payments.
-        </p>
+        <a
+          href={charity.donateUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="h-fit rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-emerald-800 hover:bg-white/90"
+        >
+          Donate →
+        </a>
+      </div>
 
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={charity.donateUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
-          >
-            Donate on official page →
-          </a>
+      <div className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-sm">
+            <div className="font-extrabold">Safety tip</div>
+            <div className="mt-1 text-emerald-900/80">
+              Always verify the domain before donating. We never take payments — we only link.
+            </div>
+          </div>
 
-          {charity.websiteUrl && (
-            <a
-              href={charity.websiteUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
+          <div className="flex gap-3">
+            <Link
+              href="/verify"
+              className="rounded-2xl border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
             >
-              Visit website
-            </a>
-          )}
+              How we verify →
+            </Link>
+            <Link
+              href="/charities"
+              className="rounded-2xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-600"
+            >
+              Back to directory →
+            </Link>
+          </div>
         </div>
-
-        <div className="mt-6 rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-900/85 ring-1 ring-emerald-200">
-          <div className="font-semibold">Safety checklist</div>
-          <ul className="mt-2 grid gap-1">
-            <li>• Check the domain name matches the official charity.</li>
-            <li>• Avoid lookalike sites and weird URL spellings.</li>
-            <li>• If you’re unsure, donate later after verifying.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
     </div>
   );
 }
