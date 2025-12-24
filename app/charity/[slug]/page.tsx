@@ -2,15 +2,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { charities } from "../../../data/charities";
 
-export function generateStaticParams() {
-  return charities.map((c) => ({ slug: c.slug }));
+export async function generateStaticParams() {
+  return charities.map((c) => ({ slug: (c.slug || "").trim().toLowerCase() }));
 }
 
-export default function CharityPage({ params }: { params: { slug: string } }) {
-  const charity = charities.find((c) => c.slug === params.slug);
+export default async function CharityPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const normalized = (slug || "").trim().toLowerCase();
+
+  const charity = charities.find(
+    (c) => (c.slug || "").trim().toLowerCase() === normalized
+  );
 
   if (!charity) {
-    // Uses app/not-found.tsx if you created it, otherwise Next default
     notFound();
   }
 
@@ -24,10 +33,11 @@ export default function CharityPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="grid gap-6">
-      {/* Top */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="grid gap-2">
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">{charity.name}</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
+            {charity.name}
+          </h1>
 
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-900">
@@ -76,13 +86,11 @@ export default function CharityPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      {/* Description card */}
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-base font-extrabold text-slate-900">About</h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">{charity.description}</p>
       </div>
 
-      {/* Safety note */}
       <div className="rounded-3xl border border-slate-200 bg-emerald-50 p-6">
         <h3 className="text-sm font-extrabold text-slate-900">Donation safety tip</h3>
         <p className="mt-2 text-sm text-slate-600">
