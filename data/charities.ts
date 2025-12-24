@@ -1,4 +1,5 @@
 import { ifrcCharities } from "./ifrcCharities";
+import { ngoCharities } from "./ngoCharities";
 
 export type Charity = {
   slug: string; // used in URL: /charity/[slug]
@@ -51,27 +52,14 @@ const manualCharities: Charity[] = [
     lastUpdated: "2025-12-24",
   },
   {
-    slug: "international-rescue-committee",
-    name: "International Rescue Committee (IRC)",
-    description:
-      "Supports refugees and people affected by humanitarian crises with safety, health, education, and resettlement services.",
+    slug: "unicef",
+    name: "UNICEF",
+    description: "Supports children worldwide with health, education, emergency relief, and protection programs.",
     country: "International",
     city: "Multiple",
-    category: "Refugees",
-    donateUrl: "https://help.rescue.org/donate",
-    websiteUrl: "https://www.rescue.org/",
-    verified: true,
-    lastUpdated: "2025-12-24",
-  },
-  {
-    slug: "charity-water",
-    name: "charity: water",
-    description: "Funds clean and safe drinking water projects in communities around the world.",
-    country: "International",
-    city: "Multiple",
-    category: "Water & Sanitation",
-    donateUrl: "https://www.charitywater.org/donate",
-    websiteUrl: "https://www.charitywater.org/",
+    category: "Orphans & Children",
+    donateUrl: "https://www.unicef.org/donate",
+    websiteUrl: "https://www.unicef.org/",
     verified: true,
     lastUpdated: "2025-12-24",
   },
@@ -87,37 +75,17 @@ const manualCharities: Charity[] = [
     verified: true,
     lastUpdated: "2025-12-24",
   },
-  {
-    slug: "unicef",
-    name: "UNICEF",
-    description: "Supports children worldwide with health, education, emergency relief, and protection programs.",
-    country: "International",
-    city: "Multiple",
-    category: "Orphans & Children",
-    donateUrl: "https://www.unicef.org/donate",
-    websiteUrl: "https://www.unicef.org/",
-    verified: true,
-    lastUpdated: "2025-12-24",
-  },
-  {
-    slug: "icrc",
-    name: "International Committee of the Red Cross (ICRC)",
-    description:
-      "Provides humanitarian protection and assistance for people affected by armed conflict and violence.",
-    country: "International",
-    city: "Multiple",
-    category: "Emergency Relief",
-    donateUrl: "https://www.icrc.org/en/donate",
-    websiteUrl: "https://www.icrc.org/",
-    verified: true,
-    lastUpdated: "2025-12-24",
-  },
 ];
 
-// ✅ Force IFRC generated list to show Verified (you can later refine per-country)
+// IFRC generated list: mark verified for now (your choice)
 const ifrcVerified: Charity[] = (ifrcCharities as unknown as Charity[]).map((c) => ({
   ...c,
   verified: true,
 }));
 
-export const charities: Charity[] = [...manualCharities, ...ifrcVerified];
+// FINAL LIST used by the site
+export const charities: Charity[] = [
+  ...manualCharities,
+  ...ngoCharities,   // non-IFRC pack (unverified)
+  ...ifrcVerified,   // one-per-country pack (verified=true for now)
+];
