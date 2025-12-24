@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global base */
 html,
 body {
   height: 100%;
 }
 
 body {
-  @apply bg-white text-slate-900 antialiased;
+  background: #ffffff;
+  color: rgb(15 23 42); /* slate-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Better default link focus */
+/* Better default focus style */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
