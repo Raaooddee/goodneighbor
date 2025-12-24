@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="relative">
             {/* Navbar (ONLY ONE brand) */}
             <header className="sticky top-0 z-40 border-b border-white/10 bg-emerald-950/60 backdrop-blur">
-              <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+              <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4">
                 {/* Brand */}
                 <Link href="/" className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-50 ring-1 ring-white/15">
@@ -72,8 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </Link>
 
                 {/* Links */}
-                <nav className="flex items-center gap-1">
-                  <NavLink href="/" label="Home" />
+                <nav className="flex items-center gap-1 overflow-x-auto whitespace-nowrap pr-1 [-webkit-overflow-scrolling:touch]">
                   <NavLink href="/charities" label="Charities" />
                   <NavLink href="/about" label="About" />
                   <NavLink href="/verify" label="Verify" />
