@@ -2,71 +2,52 @@ import Link from "next/link";
 
 export default function VerifyPage() {
   return (
-    <div className="grid gap-8">
-      <div className="grid gap-2">
-        <h1 className="text-3xl font-extrabold tracking-tight text-white">How we verify</h1>
-        <p className="text-white/85">
-          GoodNeighbor doesn’t take donations. We help reduce risk by linking to official charity pages and encouraging
-          basic verification checks.
+    <div className="grid gap-6">
+      <div>
+        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">How we verify</h1>
+        <p className="mt-2 text-slate-600">
+          GoodNeighbor is a directory — we don’t take donations. We link you to official charity pages.
         </p>
       </div>
 
-      <section className="rounded-3xl bg-white p-6 text-emerald-950 shadow-sm ring-1 ring-white/20 sm:p-8">
-        <h2 className="text-xl font-extrabold">Our verification checklist</h2>
-
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-            <div className="font-bold">1) Official domain</div>
-            <p className="mt-1 text-sm text-emerald-900/85">
-              We prefer the charity’s main website (real domain) and the donate page on that same domain.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-            <div className="font-bold">2) Clear organization identity</div>
-            <p className="mt-1 text-sm text-emerald-900/85">
-              The site should clearly show the organization’s name, mission, contact info, and location.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-            <div className="font-bold">3) Secure donation flow</div>
-            <p className="mt-1 text-sm text-emerald-900/85">
-              Donation pages should use HTTPS and trusted payment providers (card processors / secure checkout).
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-            <div className="font-bold">4) Community review</div>
-            <p className="mt-1 text-sm text-emerald-900/85">
-              If something looks off, we’d rather mark it unverified until it’s confirmed.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-6 rounded-2xl bg-white p-4 ring-1 ring-emerald-200">
-          <div className="font-bold">Important</div>
-          <p className="mt-2 text-sm text-emerald-900/85">
-            “Verified” on GoodNeighbor means we’ve done basic link and identity checks — not a full audit. Always use
-            your own judgment before donating.
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-base font-extrabold text-slate-900">What “Verified” means (for now)</h2>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            Right now, “Verified” means the link was added from an official organization site or a widely-known public
+            directory. As the project grows, we’ll tighten verification and add stronger checks.
           </p>
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-base font-extrabold text-slate-900">How you can stay safe</h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
+            <li>Check the website domain matches the organization name.</li>
+            <li>Avoid links from random ads or shorteners.</li>
+            <li>Use secure payments and keep receipts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="rounded-3xl border border-slate-200 bg-emerald-50 p-6">
+        <h3 className="text-base font-extrabold text-slate-900">Want to suggest a charity?</h3>
+        <p className="mt-2 text-sm text-slate-600">Send the official website + donate page link.</p>
+
+        <div className="mt-4 flex flex-wrap gap-3">
+          <a
+            href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Charity%20Submission"
+            className="inline-flex rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+          >
+            Submit via email →
+          </a>
           <Link
             href="/charities"
-            className="inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+            className="inline-flex rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
           >
-            Browse verified links →
-          </Link>
-          <Link
-            href="/about"
-            className="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
-          >
-            About GoodNeighbor
+            Browse charities →
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
