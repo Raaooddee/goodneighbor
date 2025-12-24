@@ -36,7 +36,7 @@ export const ALL_CATEGORIES = [
   "Scholarships",
 ] as const;
 
-// Your hand-picked / curated charities
+// Your hand-picked / curated charities (keep or edit these)
 const manualCharities: Charity[] = [
   {
     slug: "doctors-without-borders-msf",
@@ -77,15 +77,11 @@ const manualCharities: Charity[] = [
   },
 ];
 
-// IFRC generated list: mark verified for now (your choice)
+// ✅ Force all generated packs to show Verified for now
+const ngoVerified: Charity[] = (ngoCharities as Charity[]).map((c) => ({ ...c, verified: true }));
 const ifrcVerified: Charity[] = (ifrcCharities as unknown as Charity[]).map((c) => ({
   ...c,
   verified: true,
 }));
 
-// FINAL LIST used by the site
-export const charities: Charity[] = [
-  ...manualCharities,
-  ...ngoCharities,   // non-IFRC pack (unverified)
-  ...ifrcVerified,   // one-per-country pack (verified=true for now)
-];
+export const charities: Charity[] = [...manualCharities, ...ngoVerified, ...ifrcVerified];
