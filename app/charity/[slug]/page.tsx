@@ -1,15 +1,25 @@
 import Link from "next/link";
 import { charities } from "../../../data/charities";
 
-export default function CharityPage({ params }: { params: { slug: string } }) {
-  const charity = charities.find((c) => c.slug === params.slug);
+type MaybePromise<T> = T | Promise<T>;
 
+export default async function CharityPage({
+  params,
+}: {
+  params: MaybePromise<{ slug: string }>;
+}) {
+  const resolved = await params;
+  const slug = resolved?.slug ?? "";
+
+  const charity = charities.find((c) => c.slug === slug);
+
+  // If slug not found, show debug info instead of Next’s 404
   if (!charity) {
     return (
       <div style={{ padding: 24, maxWidth: 900, margin: "0 auto" }}>
         <h1 style={{ fontSize: 28, fontWeight: 900 }}>Charity not found</h1>
         <p style={{ marginTop: 10 }}>
-          Tried slug: <b>{params.slug}</b>
+          Tried slug: <b>{slug || "(empty)"}</b>
         </p>
         <p style={{ marginTop: 6 }}>
           Charities loaded: <b>{charities.length}</b>
@@ -53,6 +63,17 @@ export default function CharityPage({ params }: { params: { slug: string } }) {
 
             <p style={{ marginTop: 12, marginBottom: 0, color: "#222" }}>{charity.description}</p>
             <p style={{ marginTop: 10, marginBottom: 0, color: "#666" }}>📍 {location}</p>
+
+            {charity.websiteUrl && (
+              <a
+                href={charity.websiteUrl}
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: "inline-block", marginTop: 10, fontWeight: 700, color: "#0f766e" }}
+              >
+                Official website →
+              </a>
+            )}
           </div>
 
           <a
