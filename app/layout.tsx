@@ -89,15 +89,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </main>
 
             <footer className="border-t border-white/10 bg-emerald-950/40">
-              <div className="mx-auto max-w-6xl px-5 py-8 text-sm text-white/70">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <span>© {new Date().getFullYear()} GoodNeighbor</span>
-                  <span className="text-white/55">
-                    We never take donations — we link to official charity sites.
-                  </span>
-                </div>
-              </div>
-            </footer>
+  <div className="mx-auto max-w-6xl px-5 py-8 text-sm text-white/70">
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <span>© {new Date().getFullYear()} GoodNeighbor</span>
+
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <Link href="/privacy" className="hover:text-white">
+          Privacy
+        </Link>
+        <Link href="/terms" className="hover:text-white">
+          Terms
+        </Link>
+        <a
+          href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Support"
+          className="hover:text-white"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+
+    <div className="mt-4 rounded-2xl bg-white/5 p-4 text-xs text-white/70 ring-1 ring-white/10">
+      <div className="font-semibold text-white/85">Disclaimer</div>
+      <div className="mt-1">
+        GoodNeighbor does not process donations and never asks for payment details. Donations happen on the charity’s
+        official website. We are not affiliated with the organizations listed.
+      </div>
+    </div>
+  </div>
+</footer>
+
           </div>
         </div>
       </body>
