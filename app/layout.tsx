@@ -3,8 +3,12 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "GoodNeighbor",
+  title: {
+    default: "GoodNeighbor",
+    template: "%s • GoodNeighbor",
+  },
   description: "Find charities by cause and location. Donate on official websites.",
+  metadataBase: new URL("https://goodneighbor.charity"),
 };
 
 function LeafIcon() {
@@ -41,9 +45,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {/* Darker, modern background */}
-        <div className="min-h-screen bg-gradient-to-b from-emerald-950 via-emerald-900 to-slate-950 text-slate-900">
-          {/* Soft glow blobs */}
+        {/* Background */}
+        <div className="min-h-screen bg-gradient-to-b from-emerald-950 via-emerald-900 to-slate-950">
+          {/* Glow blobs */}
           <div className="pointer-events-none fixed inset-0 overflow-hidden">
             <div className="absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-400/15 blur-3xl" />
             <div className="absolute top-64 -left-40 h-[420px] w-[420px] rounded-full bg-emerald-300/10 blur-3xl" />
@@ -51,9 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
 
           <div className="relative">
-            {/* Navbar */}
+            {/* Navbar (ONLY ONE brand) */}
             <header className="sticky top-0 z-40 border-b border-white/10 bg-emerald-950/60 backdrop-blur">
-              <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4">
+              <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+                {/* Brand */}
                 <Link href="/" className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-50 ring-1 ring-white/15">
                     <LeafIcon />
@@ -66,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   </div>
                 </Link>
 
+                {/* Links */}
                 <nav className="flex items-center gap-1">
                   <NavLink href="/" label="Home" />
                   <NavLink href="/charities" label="Charities" />
@@ -75,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </header>
 
-            {/* Main content sits on a readable card layer */}
+            {/* Content card */}
             <main className="mx-auto max-w-6xl px-5 py-10">
               <div className="rounded-[28px] bg-white/95 p-5 shadow-xl shadow-black/20 ring-1 ring-black/5 sm:p-8">
                 {children}
