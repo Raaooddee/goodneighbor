@@ -13,11 +13,11 @@ export default function AboutPage() {
 
       <div className="grid gap-4 md:grid-cols-3">
         <div className="md:col-span-2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-extrabold text-slate-900">Why I built this</h2>
+          <h2 className="text-lg font-extrabold text-slate-900">Why we built this</h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600">
-            I made GoodNeighbor because it can be confusing to figure out where to donate online and which links are real.
+            We made GoodNeighbor because it can be confusing to figure out where to donate online and which links are real.
             This site helps you discover charities by category and country — then it sends you directly to the charity’s
-            official donate page. My goal is to make giving feel easier, safer, and more transparent.
+            official donate page. Our goal is to make giving feel easier, safer, and more transparent.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">
@@ -38,10 +38,11 @@ export default function AboutPage() {
 
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
           <h3 className="text-sm font-extrabold text-slate-900">Creator</h3>
+          {/* Raad Creator Box */}
           <div className="mt-3 flex items-center gap-3">
             <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-slate-200">
               <Image
-                src="/creator.jpg"
+                src="/raad.jpg"
                 alt="Raad AlShaikh Hassan"
                 fill
                 className="object-cover"
@@ -54,8 +55,25 @@ export default function AboutPage() {
             </div>
           </div>
 
+         {/* Tejesh Creator Box */}
+           <div className="mt-3 flex items-center gap-3">
+            <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-slate-200">
+              <Image
+                src="/tejesh1.jpg"
+                alt="Tejesh Patel"
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            </div>
+            <div>
+              <div className="text-sm font-extrabold text-slate-900">Tejesh Patel</div>
+              <div className="text-xs text-slate-500">Co-Builder of GoodNeighbor</div>
+            </div>
+          </div>
+
           <div className="mt-4 rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-900/90">
-            If you know a charity that should be listed, send me the official donate link.
+            If you know a charity that should be listed, send us the official donate link.
           </div>
 
           <a
