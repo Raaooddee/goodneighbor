@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { charities, ALL_CATEGORIES } from "../../data/charities";
 
 export default function CharitiesPage() {
@@ -28,6 +29,16 @@ export default function CharitiesPage() {
     () => filtered.filter((c) => typeof c.slug === "string" && c.slug.trim().length > 0),
     [filtered]
   );
+
+  const router = useRouter();
+
+  function pickRandom() {
+    const pool = charities.filter((c) => typeof c.slug === "string" && c.slug.trim().length > 0);
+    if (pool.length === 0) return;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    const slug = pick.slug.trim().toLowerCase();
+    router.push(`/charity/${slug}`);
+  }
 
   return (
     <div className="grid gap-6">
@@ -68,12 +79,22 @@ export default function CharitiesPage() {
 
           <label className="grid gap-2">
             <span className="text-xs font-semibold text-slate-600">Country (type to filter)</span>
-            <input
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              placeholder="e.g., Jordan (leave empty for All)"
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-200"
-            />
+            <div className="flex items-center gap-2">
+              <input
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                placeholder="e.g., United States (leave empty for All)"
+                className="flex-1 rounded-2xl border border-slate-200 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-200"
+              />
+
+              <button
+                type="button"
+                onClick={pickRandom}
+                className="whitespace-nowrap rounded-2xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+              >
+                Pick one for me
+              </button>
+            </div>
           </label>
         </div>
 
