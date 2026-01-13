@@ -43,7 +43,7 @@ export default function CharitiesPage() {
   return (
     <div className="grid gap-6">
       {/* Header */}
-      <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur">
+      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Charities</h1>
         <p className="mt-2 text-slate-600">
           Search and filter charities. We link you to official donation pages.
@@ -77,14 +77,14 @@ export default function CharitiesPage() {
             </select>
           </label>
 
-          <label className="grid gap-2">
+            <label className="grid gap-2">
             <span className="text-xs font-semibold text-slate-600">Country (type to filter)</span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               <input
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 placeholder="e.g., United States (leave empty for All)"
-                className="flex-1 rounded-2xl border border-slate-200 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-200"
+                className="flex-1 min-w-0 rounded-2xl border border-slate-200 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-emerald-200"
               />
 
               <button
@@ -133,7 +133,7 @@ export default function CharitiesPage() {
                     <span className="text-xs text-slate-500">Updated: {c.lastUpdated}</span>
                   </div>
 
-                  <p className="text-sm text-slate-700">{c.description}</p>
+                    <p className="text-sm text-slate-700 min-w-0">{c.description}</p>
                   <p className="text-sm text-slate-500">📍 {location}</p>
                 </div>
 

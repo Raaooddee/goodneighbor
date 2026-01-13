@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Content card */}
             <main className="mx-auto max-w-6xl px-5 py-10">
-              <div className="rounded-[28px] bg-white/95 p-5 shadow-xl shadow-black/20 ring-1 ring-black/5 sm:p-8">
+              <div className="rounded-[28px] bg-white p-5 shadow-xl shadow-black/20 ring-1 ring-black/5 overflow-hidden sm:p-8">
                 {children}
               </div>
             </main>
