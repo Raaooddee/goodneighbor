@@ -115,7 +115,7 @@ export default function CharitiesPage() {
               href={`/charity/${slug}`}
               className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-[1px] hover:shadow-md"
             >
-              <div className="flex items-start justify-between gap-3">
+              <div className="flex flex-col sm:flex-row items-start justify-between gap-3">
                 <div className="grid gap-2">
                   <div className="text-lg font-extrabold text-slate-900">{c.name}</div>
 
@@ -137,7 +137,7 @@ export default function CharitiesPage() {
                   <p className="text-sm text-slate-500">📍 {location}</p>
                 </div>
 
-                <span className="mt-1 text-sm font-semibold text-emerald-800 group-hover:translate-x-0.5 transition">
+                <span className="mt-2 sm:mt-1 text-sm font-semibold text-emerald-800 group-hover:translate-x-0.5 transition">
                   View →
                 </span>
               </div>
