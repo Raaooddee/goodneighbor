@@ -52,6 +52,17 @@ export default function AboutPage() {
             <div>
               <div className="text-sm font-extrabold text-slate-900">Raad AlShaikh Hassan</div>
               <div className="text-xs text-slate-500">Builder of GoodNeighbor</div>
+                <div className="text-xs text-slate-500">CS &amp; DS @ UW–Madison</div>
+                <div className="text-xs">
+                  <a
+                    href="https://www.linkedin.com/in/raad-hassan-160b3220a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
             </div>
           </div>
 
@@ -69,18 +80,29 @@ export default function AboutPage() {
             <div>
               <div className="text-sm font-extrabold text-slate-900">Tejesh Patel</div>
               <div className="text-xs text-slate-500">Co-Builder of GoodNeighbor</div>
+              <div className="text-xs text-slate-500">CS &amp; DS @ UW–Madison</div>
+              <div className="text-xs">
+                  <a
+                    href="https://www.linkedin.com/in/tejesh-patel-86bb23364/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    LinkedIn
+                  </a>
+              </div>
             </div>
           </div>
 
           <div className="mt-4 rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-900/90">
-            If you know a charity that should be listed, send us the official donate link.
+            If you have any feedback or suggestions, please feel free to reach out!
           </div>
 
           <a
-            href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Charity%20Submission"
+            href="mailto:raad.alshaikh.hassan@gmail.com?subject=GoodNeighbor%20Feedback"
             className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
           >
-            Submit a charity →
+            Send feedback →
           </a>
         </div>
       </div>
